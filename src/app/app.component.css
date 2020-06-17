@@ -1,0 +1,27 @@
+.header{
+    text-align: center;
+}
+.title{
+  text-align: center;
+  color: #ff9c71;
+  font-family: 'Segoe UI';
+}
+
+
+.titleTag *
+{
+    font-size: 12px;
+    font-weight: 300;
+    color:#fbd46d;
+
+}
+
+html{
+    background-color: cornflowerblue;
+}
+
+
+.cdk-overlay-container{
+margin-left: 30%;
+}
+
