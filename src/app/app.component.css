@@ -3,7 +3,7 @@
 }
 .title{
   text-align: center;
-  color: #ff9c71;
+  color:#ea907a;
   font-family: 'Segoe UI';
 }
 
@@ -13,15 +13,13 @@
     font-size: 12px;
     font-weight: 300;
     color:#fbd46d;
-
+    font-family:Helvetica;
 }
 
 html{
     background-color: cornflowerblue;
 }
+    
 
 
-.cdk-overlay-container{
-margin-left: 30%;
-}
 

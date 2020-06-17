@@ -18,21 +18,16 @@ import { debounceTime } from 'rxjs/operators';
 
   <div class="srchContainer">
   <form class="example-form" class="srchForm">
-    <mat-form-field  appearance="fill" id="srchField">
-      <input matInput [formControl]="queryField" [matAutocomplete]="auto" focus panelClass="testClass">
-      <mat-autocomplete #auto="matAutocomplete" style="    margin-left: 30%;" >
-        <mat-option *ngFor="let movie of movies" [value]="movie" class="srchRes" >
-          {{movie}}
+    <mat-form-field  appearance="outline" id="srchField">
+    <mat-label>Movie Name</mat-label>  
+    <input matInput placeHolder="Enter Movie Name" [formControl]="queryField" [matAutocomplete]="auto" focus panelClass="testClass" id="queryField">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let movie of movies" [value]="movie.name" class="srchRes" >
+          {{movie.name}}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
   </form>
-
-  <h1>Hello</h1>
-  <h1>Hello</h1>
-  <h1>Hello</h1>
-  <h1>Hello</h1>
-  <h1>Hello</h1>
   
   </div>` ,
   styleUrls: ['./search.component.css']
@@ -56,10 +51,12 @@ ngOnInit() {
     distinctUntilChanged()
     )
   .subscribe( result => { if (result.status === 400) { return; } else {  
+    console.log("result is "+result.json());
     var temp = (result.json());
     console.log("temp "+temp.length);
-    this.movies = temp;
-    console.log(this.movies[2])
+   
+    this.movies = result.json().MovieList;
+   // this.movies =['Ironman','Iron Man2'];
 }
 });
 
@@ -77,5 +74,8 @@ checkPlaceHolder() {
     return
   }
 }
+
+
+
 
 }
