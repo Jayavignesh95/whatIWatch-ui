@@ -14,22 +14,7 @@ import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
-  template: `
-
-  <div class="srchContainer">
-  <form class="example-form" class="srchForm">
-    <mat-form-field  appearance="outline" id="srchField">
-    <mat-label>Movie Name</mat-label>  
-    <input matInput placeHolder="Enter Movie Name" [formControl]="queryField" [matAutocomplete]="auto" focus panelClass="testClass" id="queryField">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let movie of movies" [value]="movie.name" class="srchRes" >
-          {{movie.name}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-  </form>
-  
-  </div>` ,
+  templateUrl:'./search.component.html',
   styleUrls: ['./search.component.css']
 })
 
@@ -56,13 +41,15 @@ ngOnInit() {
     console.log("temp "+temp.length);
    
     this.movies = result.json().MovieList;
-   // this.movies =['Ironman','Iron Man2'];
 }
 });
 
   //.subscribe(response => console.log(response)));
 }
 
+getMovieInfo(data :any){
+  alert("selected value is "+data);
+}
 myplaceHolder: string = 'Search Movie'
 
 checkPlaceHolder() {
